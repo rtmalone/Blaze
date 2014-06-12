@@ -4,12 +4,12 @@ feature "User sign up" do
   scenario "successful" do
     visit '/'
     click_link "Sign Up"
+    pending
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
     click_button "Sign Up"
     page.should have_content "Welcome to Blaze!"
-    pending
     current_path.should == account_path
   end
 
@@ -17,6 +17,7 @@ feature "User sign up" do
     User.create(email: "user@example.com", password: "password", password_confirmation: "password")
     visit '/'
     click_link "Sign Up"
+    pending
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "notthepassword"
