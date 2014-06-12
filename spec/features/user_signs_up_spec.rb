@@ -10,7 +10,13 @@ feature "User sign up" do
     fill_in "Password confirmation", with: "password"
     click_button "Sign Up"
     page.should have_content "Welcome to Blaze!"
-    current_path.should == account_path
+
+    click_link "Sign Out"
+    click_link "Sign In"
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_button "Log in"
+    page.should have_content "You have signed in successfully"
   end
 
   scenario "failed" do
@@ -24,7 +30,7 @@ feature "User sign up" do
     click_button "Sign Up"
     page.should_not have_content "Welcome to Blaze!"
     page.should have_content "Your account could not be created."
-    page.should have_error("already exists", on: "Email")
-    page.should have_error("must match confirmation", on: "Password")
+    page.should have_error("Email already exists", on: "Email")
+    page.should have_error("Passwords must match", on: "Password")
   end
 end
