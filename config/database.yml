@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: blaze_production
-  username: blaze
-  password: <%= ENV['BLAZE_DATABASE_PASSWORD'] %>
