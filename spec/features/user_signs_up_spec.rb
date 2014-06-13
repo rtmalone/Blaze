@@ -4,18 +4,17 @@ feature "User sign up" do
   scenario "successful" do
     visit '/'
     click_link "Sign Up"
-    pending
     fill_in "Email", with: "user@example.com"
-    fill_in "Password", with: "password"
+    fill_in "user_password", with: "password"
     fill_in "Password confirmation", with: "password"
-    click_button "Sign Up"
+    click_button "Sign up"
     page.should have_content "Welcome to Blaze!"
 
     click_link "Sign Out"
     click_link "Sign In"
     fill_in "Email", with: "user@example.com"
     fill_in "Password", with: "password"
-    click_button "Log in"
+    click_button "Sign in"
     page.should have_content "You have signed in successfully"
   end
 
@@ -23,14 +22,12 @@ feature "User sign up" do
     User.create(email: "user@example.com", password: "password", password_confirmation: "password")
     visit '/'
     click_link "Sign Up"
-    pending
     fill_in "Email", with: "user@example.com"
-    fill_in "Password", with: "password"
+    fill_in "user_password", with: "password"
     fill_in "Password confirmation", with: "notthepassword"
-    click_button "Sign Up"
+    click_button "Sign up"
     page.should_not have_content "Welcome to Blaze!"
-    page.should have_content "Your account could not be created."
-    page.should have_error("Email already exists", on: "Email")
-    page.should have_error("Passwords must match", on: "Password")
+    page.should have_content "has already been taken"
+    page.should have_content "doesn't match Password"
   end
 end
