@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
+  get 'users/:id' => 'users#show'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

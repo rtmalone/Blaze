@@ -1,0 +1,6 @@
+- if (current_user == @user)
+  %h1 #{current_user.email}'s Profile
+- else
+  %h1 #{@user.email}'s Profile
+//%h3= @user.username
+%h4= @user.email

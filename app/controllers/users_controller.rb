@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_user, :finish_signup
 
-def finish_signup
+  def finish_signup
     if request.patch? && params[:user] #&& params[:user][:email]
       if current_user.update(user_params)
         #current_user.skip_reconfirmation!
@@ -11,6 +11,10 @@ def finish_signup
         @show_errors = true
       end
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
