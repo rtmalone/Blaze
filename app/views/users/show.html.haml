@@ -1,6 +1,23 @@
 - if (current_user == @user)
-  %h1 #{current_user.email}'s Profile
+  %h3 #{current_user.email}'s Log
 - else
-  %h1 #{@user.email}'s Profile
+  %h3 You are viewing #{@user.email}'s Log
 //%h3= @user.username
 %h4= @user.email
+%p Trails you have logged:
+
+%ul.entry-roll
+  - @user.entries.each do |entry|
+    .entry
+      Trail Date:
+      = entry.date
+      Trail Name:
+      = entry.name
+      Length:
+      = entry.length
+      State:
+      = entry.state
+      Notes:
+      = entry.notes
+      -if current_user == @user
+        = link_to "Edit", edit_entry_path(entry.id)

@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.create(entry_params)
+    @entry = current_user.entries.create(entry_params)
     redirect_to "/entries"
   end
 

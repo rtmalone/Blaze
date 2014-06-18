@@ -16,6 +16,7 @@
           = link_to "Sign In", new_user_session_path
         - if user_signed_in?
           = link_to "Sign Out", destroy_user_session_path, method: :delete
+          = link_to "Your Log", user_path(current_user)
         -if alert
           .alert.alert-box= alert
         -elsif notice
