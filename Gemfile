@@ -7,11 +7,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'figaro'
 gem 'fog'
+gem 'foundation-rails'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pg'
@@ -21,7 +22,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'zurb-foundation'
 
 group :development do
   gem 'spring'
