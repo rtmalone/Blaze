@@ -1,5 +1,7 @@
 %h2 All Trail Entries
 
+- if user_signed_in?
+  = link_to 'New Entry', new_entry_path
 %ul.entry-roll
   - @entries.each do |entry|
     .entry
@@ -7,6 +9,5 @@
       = entry.name
       = entry.length
       = entry.state
+      = entry.city
       = entry.notes
-- if user_signed_in?
-  = link_to 'New Entry', new_entry_path
