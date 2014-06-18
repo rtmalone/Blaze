@@ -10,6 +10,7 @@ gem 'fog'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "mini_magick"
 gem 'omniauth'
 gem 'omniauth-twitter'

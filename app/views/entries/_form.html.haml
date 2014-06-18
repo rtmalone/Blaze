@@ -1,0 +1,7 @@
+= simple_form_for(@entry) do |f|
+  = f.input :date, :as => :datepicker, label: "Trail Date"
+  = f.input :name, label: "Trail Name"
+  = f.input :length, label: "Length"
+  = f.input :state, label: "State"
+  = f.input :city, label: "City"
+  = f.button :submit, "Log Trail"

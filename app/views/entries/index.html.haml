@@ -1,0 +1,12 @@
+%h2 All Trail Entries
+
+%ul.entry-roll
+  - @entries.each do |entry|
+    .entry
+      = entry.date
+      = entry.name
+      = entry.length
+      = entry.state
+      = entry.notes
+- if user_signed_in?
+  = link_to 'New Entry', new_entry_path
