@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks'}
 
-  resources :entries
+  resources :entries #do
+  #  resources :attachments
+  #end
   resources :users
   root to: 'home#index'
 

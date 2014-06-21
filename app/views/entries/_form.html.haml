@@ -5,4 +5,6 @@
   = f.input :state, label: "State"
   = f.input :city, label: "City"
   = f.input :notes, label: "Notes"
+  = f.simple_fields_for :attachments do |a|
+    = a.input :attachment, as: :file
   = f.button :submit, "Log Trail"

@@ -11,3 +11,6 @@
       = entry.state
       = entry.city
       = entry.notes
+      - entry.attachments.each do |attachment|
+        .attachment
+          = link_to image_tag(attachment.attachment_url(:thumb).to_s), attachment.attachment_url
