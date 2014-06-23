@@ -4,6 +4,7 @@ ruby '2.1.1'
 
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'database_cleaner', '~> 1.3.0'
 gem 'devise'
 gem 'figaro'
 gem 'fog'
