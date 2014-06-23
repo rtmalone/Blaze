@@ -45,6 +45,5 @@ a {
 }
 .button {
   @extend .tiny;
-  @extend .radius;
   @extend .success;
 }
