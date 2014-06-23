@@ -17,7 +17,32 @@
  */
 
 @import "foundation_and_overrides";
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700);
 
+body {
+  background-image: image-url('sandpaper.png');
+}
+
+#bg-image {
+  background-image: image-url('samplebg.jpg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: green;
+}
+
+.alert, .notice {
+  margin-top: 2%;
+  @extend .radius;
+}
+
+.logo {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 400;
+}
 .button {
   @extend .tiny;
   @extend .radius;
