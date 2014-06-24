@@ -1,0 +1,12 @@
+- @trail_entries.each do |trail|
+  = simple_form_for(trail, url: new_entry_path, method: :get) do |f|
+    =f.input :name, :as => :hidden
+    =f.input :length, :as => :hidden
+    =f.input :city, :as => :hidden
+    =f.input :state, :as => :hidden
+    .entry
+      %h3= trail["name"]
+      %h5= trail["length"]
+      %h5= trail["city"]
+      %h5= trail["state"]
+    = f.button :submit, "Add to Log"
