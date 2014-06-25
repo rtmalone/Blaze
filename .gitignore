@@ -17,3 +17,6 @@
 
 # Ignore public uploads
 /public/uploads/
+
+# Ignore images
+/app/assets/images
