@@ -58,3 +58,10 @@ a {
   @extend .tiny;
   @extend .success;
 }
+
+.entry {
+  border-radius: 10px;
+  background: rgb(255,255,255);
+  margin-bottom: 2%;
+  padding: 4%;
+}

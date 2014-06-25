@@ -7,22 +7,26 @@
 %p Trails you have logged:
 
 - if (current_user == @user)
-  = link_to 'New Entry', new_entry_path
+  = link_to 'New Entry', new_entry_path, class: "button radius"
 %ul.entry-roll
   - @user.entries.each do |entry|
-    .entry
-      Trail Date:
-      = entry.date
-      Trail Name:
-      = entry.name
-      Length:
-      = entry.length
-      State:
-      = entry.state
-      Notes:
-      = entry.notes
-      - entry.attachments.each do |attachment|
-        .attachment
-          = link_to image_tag(attachment.attachment_url(:thumb).to_s), attachment.attachment_url
-      -if current_user == @user
-        = link_to "Edit", edit_entry_path(entry.id)
+    .row
+      .small-8.columns
+        .entry
+          %span Trail Date:
+          = entry.date
+          %p Trail Name:
+          = entry.name
+          %p Length:
+          = entry.length
+          %p City:
+          = entry.city
+          %p State:
+          = entry.state
+          %p Notes:
+          = entry.notes
+          - entry.attachments.each do |attachment|
+            .attachment
+              = link_to image_tag(attachment.attachment_url(:thumb).to_s), attachment.attachment_url
+          -if current_user == @user
+            = link_to "Edit", edit_entry_path(entry.id)
