@@ -42,7 +42,18 @@ a {
 .logo {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 400;
+  font-size: 6em;
+  color: rgb(245, 245, 245);
+  text-shadow: 1px 3px 12px rgba(0,0,0,0.7);
 }
+
+/*#index-logo{
+  background: rgba(0,0,0,0.2);
+  width: 20%;
+  padding: 0% 1% 0% 1%;
+  margin-left: 5%;
+}*/
+
 .button {
   @extend .tiny;
   @extend .success;
