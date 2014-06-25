@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   #  resources :attachments
   #end
   resources :users
+  # resources :trail_api
   root to: 'home#index'
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
+  get 'trail_api' => 'trail_api#select'
   get 'users/:id' => 'users#show'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

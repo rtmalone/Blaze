@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @entry = Entry.new
+    @entry = Entry.new(entry_params)
     @entry.attachments.build
   end
 
