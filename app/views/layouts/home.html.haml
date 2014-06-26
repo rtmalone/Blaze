@@ -10,18 +10,28 @@
     = csrf_meta_tags
   %body
     #bg-image
-      %ul
-        - unless user_signed_in?
-          //%button(data-reveal-id="SignUpModal" data-reveal-ajax="users/sign_up") a button
-          = link_to "Sign Up", new_user_registration_path
-          = link_to "Sign In", new_user_session_path
-        - if user_signed_in?
-          = link_to "Sign Out", destroy_user_session_path, method: :delete
-          = link_to "Your Log", user_path(current_user)
-        -if alert
-          .alert.alert-box= alert
-        -elsif notice
-          .notice.alert-box.info= notice
-        = yield
-        = javascript_include_tag "application"
+      - unless user_signed_in?
+        //%button(data-reveal-id="SignUpModal" data-reveal-ajax="users/sign_up") a button
+        = link_to "Sign Up", new_user_registration_path, style: "visibility: hidden"
+        = link_to "Sign In", new_user_session_path,  style: "visibility: hidden"
+      - if user_signed_in?
+        = link_to "Sign Out", destroy_user_session_path, method: :delete,  style: "visibility: hidden"
+        = link_to "Your Log", user_path(current_user), style: "visibility: hidden"
+      -# -if alert
+      -#   .alert.alert-box= alert, style: "visibility: hidden"
+      -# -elsif notice
+      -#   .notice.alert-box.info= notice, style: "visibility: hidden"
+      = yield
+      = javascript_include_tag "application"
   #SignUpModal.reveal-modal.medium.radius(data-reveal)
+
+//#bg-slideshow
+//  %ul.cb-slideshow
+//    %li
+//      %span Image 1
+//    %li
+//      %span Image 2
+//    %li
+//      %span Image 3
+//    %li
+//      %span Image 4
