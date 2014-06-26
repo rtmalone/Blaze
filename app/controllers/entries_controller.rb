@@ -5,7 +5,8 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @entry = Entry.new(entry_params)
+    @entry = Entry.new
+    @entry.assign_attributes(entry_params) if params[:entry]
     @entry.attachments.build
   end
 
@@ -31,6 +32,6 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.require(:entry).permit(:date, :name, :length, :state, :city, :notes,
-                                  :lat, :lon, :user_id, attachments_attributes: [:attachment])
+                                  attachments_attributes: [:attachment])
   end
 end

@@ -7,8 +7,8 @@ class TrailApi
   def initialize
   end
 
-  def self.for_state
-    @options = {query: { q:{activities_activity_type_name_cont: "hiking", state_eq: "Tennessee"} }}
+  def self.for_state(state)
+    @options = {query: { q:{activities_activity_type_name_cont: "hiking", state_eq: state} }}
     self.get("/api.json", @options)
   end
 end
