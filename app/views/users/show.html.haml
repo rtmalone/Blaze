@@ -1,32 +1,44 @@
 - if (current_user == @user)
-  %h3 #{current_user.email}'s Log
+  %h4 #{current_user.email}'s Log
 - else
-  %h3 You are viewing #{@user.email}'s Log
-//%h3= @user.username
-%h4= @user.email
+  %h4 You are viewing #{@user.email}'s Log
 %p Trails you have logged:
 
-- if (current_user == @user)
-  = link_to 'New Entry', new_entry_path, class: "button radius"
-%ul.entry-roll
-  - @user.entries.each do |entry|
-    .row
-      .small-8.columns
-        .entry
-          %span Trail Date:
-          = entry.date
-          %p Trail Name:
-          = entry.name
-          %p Length:
-          = entry.length
-          %p City:
-          = entry.city
-          %p State:
-          = entry.state
-          %p Notes:
-          = entry.notes
-          - entry.attachments.each do |attachment|
-            .attachment
-              = link_to image_tag(attachment.attachment_url(:thumb).to_s), attachment.attachment_url
-          -if current_user == @user
-            = link_to "Edit", edit_entry_path(entry.id)
+//- if (current_user == @user)
+//  = link_to 'New Entry', new_entry_path, class: "button radius"
+.row
+  .small-8.columns
+    %ul.entry-roll
+      - @user.entries.each do |entry|
+        .row
+          .small-12.columns
+            .entry.clearfix
+              .row
+                .small-12.columns
+                  %strong Trail Date:
+                  = entry.date
+              .row
+                .small-12.columns
+                  %strong Trail Name:
+                  = entry.name
+              .row
+                .small-4.columns
+                  %strong Length:
+                  = entry.length
+                .small-4.columns
+                  %strong City:
+                  = entry.city
+                .small-4.columns
+                  %strong State:
+                  = entry.state
+              .row
+                .small-12.columns
+                  %strong Notes:
+                  = entry.notes
+              - entry.attachments.each do |attachment|
+                .attachment
+                  = link_to image_tag(attachment.attachment_url(:thumb).to_s), attachment.attachment_url
+              .row
+                .small-12.columns
+                  -if current_user == @user
+                    = link_to "Edit", edit_entry_path(entry.id), class: "button right"
