@@ -1,11 +1,11 @@
-%h3 Community Entries
+%h4 Community Entries
 
 //- if user_signed_in?
 //  = link_to 'New Entry', new_entry_path, class: "button radius"
 %ul.entry-roll
   - @entries.each do |entry|
     .entry.clearfix
-      %em= entry.user.email
+      %em= link_to "#{entry.user.email}", user_path(entry.user.id)
       %em logged:
       .row
         .small-12.columns
@@ -32,5 +32,7 @@
       - entry.attachments.each do |attachment|
         .attachment
           = link_to image_tag(attachment.attachment_url(:thumb).to_s), attachment.attachment_url
-        -if current_user == @user
-          = link_to "Edit", edit_entry_path(entry.id),  class: "custom-button-class"
+      .row
+        .small-12.columns
+          -if current_user == entry.user
+            = link_to "Edit", edit_entry_path(entry.id),  class: "button right radius"

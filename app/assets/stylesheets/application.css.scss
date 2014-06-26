@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
-
  *= require jquery.ui.datepicker
  */
 
@@ -24,6 +23,7 @@ $medium-blue: #5b827c;
 $medium-green: #a3c2a2;
 $red-color: #d17659;
 $logo-text-shadow: 1px 3px 12px rgba(0,0,0,0.7);
+$border-radius: 0px 10px 10px 10px;
 
 body {
   //background-image: image-url('sandpaper.png');
@@ -46,7 +46,7 @@ body {
 }
 
 a {
-  color: green;
+  color: $dark-color;
 }
 
 .alert, .notice {
@@ -77,7 +77,6 @@ a {
 .button {
   @extend .tiny;
   @extend .success;
-  @extend .radius;
   background: $dark-color;
 }
 
@@ -85,12 +84,12 @@ a {
   height: 35em;
   overflow-x: scroll;
   background: rgba(91,130,124,0.2);
-  border-radius: 10px;
+  border-radius: $border-radius;
   padding: 3%;
 }
 
 .entry {
-  border-radius: 10px;
+  border-radius: $border-radius;
   background: rgba(91,130,124,0.5);
   margin-bottom: 2%;
   padding: 4%;

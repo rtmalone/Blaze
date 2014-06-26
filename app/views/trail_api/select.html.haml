@@ -1,12 +1,24 @@
-- @trail_entries.each do |trail|
-  = simple_form_for(trail, url: new_entry_path, method: :get) do |f|
-    =f.input :name, :as => :hidden
-    =f.input :length, :as => :hidden
-    =f.input :city, :as => :hidden
-    =f.input :state, :as => :hidden
-    .entry
-      %h3= trail["name"]
-      %h5= trail["length"]
-      %h5= trail["city"]
-      %h5= trail["state"]
-    = f.button :submit, "Add to Log"
+%h4 Choose a trail
+.entry-roll
+  - @trail_entries.each do |trail|
+    = simple_form_for(trail, url: new_entry_path, method: :get) do |f|
+      .entry.clearfix
+        =f.input :name, :as => :hidden
+        =f.input :length, :as => :hidden
+        =f.input :city, :as => :hidden
+        =f.input :state, :as => :hidden
+        .row
+          .small-12.columns
+            %strong Trail Name:
+            %h5= trail["name"]
+        .row
+          .small-4.columns
+            %strong Length:
+            = trail["length"]
+          .small-4.columns
+            %strong City:
+            = trail["city"]
+          .small-4.columns
+            %strong State:
+            = trail["state"]
+        = f.button :submit, "Add to Log", class: "radius right"
