@@ -1,10 +1,17 @@
-= simple_form_for(@entry) do |f|
-  = f.input :date, :as => :datepicker, label: "Trail Date"
-  = f.input :name, label: "Trail Name"
-  = f.input :length, label: "Length"
-  = f.input :state, label: "State"
-  = f.input :city, label: "City"
-  = f.input :notes, label: "Notes"
-  = f.simple_fields_for :attachments do |a|
-    = a.input :attachment, as: :file
-  = f.button :submit, "Log Trail"
+.form
+  = simple_form_for(@entry) do |f|
+    = f.input :name, label: "Trail Name"
+    .row
+      .small-6.columns
+        = f.input :date, :as => :datepicker, label: "Trail Date"
+      .small-6.columns
+        = f.input :length, label: "Length"
+    .row
+      .small-6.columns
+        = f.input :state, label: "State"
+      .small-6.columns
+        = f.input :city, label: "City"
+    = f.input :notes, label: "Notes", as: :text
+    = f.simple_fields_for :attachments do |a|
+      = a.input :attachment, as: :file
+    = f.button :submit, "Log Trail", class: "tiny radius"

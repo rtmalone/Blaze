@@ -27,8 +27,29 @@ $border-radius: 0px 10px 10px 10px;
 $logo-color: rgb(245,245,245);
 
 body {
-  //background-image: image-url('sandpaper.png');
   background: $light-color -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.0)), to(rgba(0, 0, 0, 0.2)));
+  position: relative;
+  display: block;
+}
+
+#main-bg-image {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#main-bg-image:after {
+  background: asset-url('map2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  opacity: 0.15;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  content: "";
 }
 
 .clearfix:after {
@@ -53,6 +74,11 @@ a {
 .alert, .notice {
   margin-top: 2%;
   @extend .radius;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
 }
 
 .landing-btn {
@@ -101,6 +127,20 @@ a {
   margin-top: 5%;
 }
 
+#oauth-link{
+  .button {
+    background: $red-color;
+    margin-top: -10.5%;
+  }
+}
+
+#oauth-link{
+  .button:hover {
+    background: $red-color -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.0)), to(rgba(0, 0, 0, 0.3)));
+    margin-top: -10.5%;
+  }
+}
+
 .button {
   //@extend .tiny;
   //@extend .success;
@@ -121,7 +161,7 @@ a {
 
 .entry {
   border-radius: $border-radius;
-  background: rgba(91,130,124,0.5);
+  background: rgba(91,130,124,0.8);
   margin-bottom: 2%;
   padding: 4%;
   .button {
@@ -136,7 +176,23 @@ a {
   border: 2px solid $dark-color
 }
 
-// ---- Slideshow
+.side-roll {
+  @extend .entry-roll;
+  .button {
+    background: $red-color;
+  }
+}
+
+.side-module {
+  @extend .entry;
+}
+
+.header {
+  margin-left: 2%;
+}
+
+// ---- Slideshow ------
+
 .cb-slideshow,
 .cb-slideshow:after {
     position: fixed;

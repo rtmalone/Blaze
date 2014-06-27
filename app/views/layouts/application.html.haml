@@ -9,26 +9,27 @@
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
   %body
-    .row
-      .small-6.medium-6.columns
-        %p.logo-2 Blaze
-      .small-6.medium-6.columns
-        .nav
-          %ul.button-group.radius.right
-            - if user_signed_in?
-              %li= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button tiny"
-              %li= link_to "My Log", user_path(current_user), class: "button tiny"
-              %li= link_to "Community Log", entries_path, class: "button tiny"
-              %li= link_to 'New Entry', new_entry_path, class: "button tiny"
-
-          //  - else
-          //    %li= link_to "Sign Up", new_user_registration_path, class: "button"
-          //    %li= link_to "Sign In", new_user_session_path, class: "button"
+    #main-bg-image
       .row
-        .small-12.medium-6.columns
-          -if alert
-            .alert.alert-box= alert
-          -elsif notice
-            .notice.alert-box.info= notice
-      = yield
-      = javascript_include_tag "application"
+        .small-6.medium-6.columns
+          %p.logo-2 Blaze
+        .small-6.medium-6.columns
+          .nav
+            %ul.button-group.radius.right
+              - if user_signed_in?
+                %li= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button tiny"
+                %li= link_to "My Log", user_path(current_user), class: "button tiny"
+                %li= link_to "Community Log", entries_path, class: "button tiny"
+                %li= link_to 'New Entry', new_entry_path, class: "button tiny"
+
+            //  - else
+            //    %li= link_to "Sign Up", new_user_registration_path, class: "button"
+            //    %li= link_to "Sign In", new_user_session_path, class: "button"
+        .row
+          .small-12.medium-6.columns
+            -if alert
+              .alert.alert-box= alert
+            -elsif notice
+              .notice.alert-box.info= notice
+        = yield
+        = javascript_include_tag "application"

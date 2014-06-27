@@ -1,8 +1,7 @@
 - if (current_user == @user)
-  %h4 #{current_user.email}'s Log
+  %h4.header #{current_user.email}'s Log
 - else
   %h4 You are viewing #{@user.email}'s Log
-%p Trails I have logged:
 
 //- if (current_user == @user)
 //  = link_to 'New Entry', new_entry_path, class: "button radius"
@@ -44,9 +43,15 @@
                   -if current_user == @user
                     = link_to "Edit", edit_entry_path(entry.id), class: "button right radius tiny"
   .small-3.columns
-    .entry-roll
+    .side-roll
       .row
         .small-12.columns
-          = simple_form_for(:trail_api, url: trail_api_path(:trail_api_params), method: :get) do |f|
-            = f.select :state, %w(Alabama Alaska)
-            = f.button :submit, "Find a Trail", class: "button radius"
+          .side-module
+            = simple_form_for(:trail_api, url: trail_api_path(:trail_api_params), method: :get) do |f|
+              = f.select :state, ["Alabama","Florida","Georgia","Kentucky","Mississippi","North Carolina","South Carolina","Tennesee","Virginia"]
+              = f.button :submit, "Find a Trail", class: "radius", style: "margin-left: 14%"
+      .row
+        .small-12.columns
+          .side-module
+            Trails Logged:
+            = @user.entries.count
