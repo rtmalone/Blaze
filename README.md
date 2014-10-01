@@ -1,4 +1,4 @@
-# Blaze
+[# Blaze](http://blazeapp.herokuapp.com/)
 
 A web application for logging trails completed while hiking, biking, or running.
 
